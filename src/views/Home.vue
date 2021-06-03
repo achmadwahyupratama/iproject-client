@@ -36,6 +36,8 @@ export default {
   methods: {
   },
   created () {
+    this.$store.dispatch('fetchCountries')
+    this.$store.dispatch('fetchFavourites')
     this.$store.commit('SET_favourite', this.$store.state.favourites[0])
     this.$store.dispatch('getStandings', this.$store.state.favourite.leagueKey)
       .then(({ data }) => {

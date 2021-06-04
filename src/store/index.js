@@ -31,6 +31,9 @@ export default new Vuex.Store({
     },
     SEND_message (state, payload) {
       state.messages.push(payload)
+    },
+    SOCKET_sendMessage (state, payload) {
+      state.messages.push(payload)
     }
   },
   actions: {
@@ -73,7 +76,7 @@ export default new Vuex.Store({
           console.log(err)
         })
     },
-    fetchFavourites ({ commit }) {
+    fetchFavourites (context) {
       console.log('favourite triggered')
       axios({
         url: '/favourites',
@@ -83,7 +86,10 @@ export default new Vuex.Store({
         }
       })
         .then(({ data }) => {
-          commit('SET_favourites', data)
+          context.commit('SET_favourites', data)
+          if (context.state.favourite) {
+            context.commit('SET_favourite', context.state.favourites[0])
+          }
         })
         .catch((err) => {
           console.log(err)

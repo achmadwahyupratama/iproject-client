@@ -1,13 +1,13 @@
 <template>
     <div id="leftBar" class="col-3 col p-4">
-        <h4>Favourites :</h4>
-        <ul style="list-style: none;">
+        <h4>Select your favourite team :</h4>
+        <ul class="favourite-list" style="list-style: none;">
             <FavouritesList
               v-for="favourite in favourites" :key="favourite.id"
               :favourite="favourite"
             ></FavouritesList>
             <li>
-                <a @click.prevent="formActive" href="#">Add Favorites</a>
+                <a class="btn btn-dark btn-sm" @click.prevent="formActive">+</a> Add a team
             </li>
         </ul>
         <AddFavourite
@@ -16,6 +16,7 @@
         />
         <div id="chat-box">
           <ChatBox
+            v-if="favourite"
             :teamBadge="teamBadge"
           />
         </div>
@@ -56,6 +57,9 @@ export default {
       } else {
         return ''
       }
+    },
+    favourite: function () {
+      return this.$store.state.favourite
     }
   }
 }

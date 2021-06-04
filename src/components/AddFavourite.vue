@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <div class="p-3 container">
     <form @submit.prevent="createFavourite">
-        <div class="form-group">
+        <div class="form-group p-1">
           <select v-model="leagueKey" class="form-select" aria-label="Default select example">
             <option value="0" selected disabled>Select Country</option>
             <option v-for="country in countries" :key="country.id" :value="country.leagueKey">{{country.countryName}}</option>
           </select>
         </div>
-        <div v-if="listTeams.length !== 0">
+        <div class="form-group p-1" v-if="listTeams.length !== 0">
           <select v-model="teamKey" class="form-select" aria-label="Default select example">
             <option value="0" selected disabled>Select Team</option>
             <option v-for="team in listTeams" :key="team.team_key" :value="team.team_key">{{team.team_name}}</option>
           </select>
         </div>
-        <button v-if="showAddButton" type="submit" class="btn rounded btn-primary" value="add">add</button>
+        <button v-if="showAddButton" type="submit" class="btn rounded btn-dark btn-sm p-1" value="add">add</button>
     </form>
   </div>
 </template>

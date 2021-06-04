@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="vh-100 vw-100">
+  <div id="app" class="min-vh-100 min-vw-100">
     <router-view/>
     <HFooter/>
   </div>
@@ -18,11 +18,7 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.nav-link {
+  text-decoration-color: #F2F2F2;
 }
 </style>

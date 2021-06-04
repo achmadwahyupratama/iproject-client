@@ -41,6 +41,7 @@ export default {
         icon: this.teamBadge
       }
       this.$store.commit('SEND_message', payload)
+      this.$socket.emit('onSendMessage', payload)
       console.log(this.message)
       console.log(payload)
       this.message = ''

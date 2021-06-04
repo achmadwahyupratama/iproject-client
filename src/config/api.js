@@ -1,7 +1,7 @@
 import axios from 'axios'
 export default axios.create({
-  //development
+  // development
   baseURL: 'http://localhost:3000'
-  //production
+  // production
   // baseURL: 'https://y-kickoff.herokuapp.com'
 })

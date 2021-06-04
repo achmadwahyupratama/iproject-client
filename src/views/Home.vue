@@ -4,7 +4,7 @@
     <div class="row d-flex flex-row">
       <LeftBar/>
       <div class="col-9 d-flex flex-column display-content">
-        <div class="d-flex flex-row co-nav-bar navbar justify-content-around collapse navbar-collapse navbar-expand-lg">
+        <div class="d-flex flex-row co-nav-bar navbar navbar-dark justify-content-around collapse">
           <div  class="nav-item">
             <router-link  class="nav-link" to="/standings">STANDINGS</router-link>
           </div>
@@ -15,7 +15,7 @@
             <router-link  class="nav-link" to="/news">NEWS</router-link>
           </div>
         </div>
-        <div class="route-view-display">
+        <div class="route-view-display overflow-auto">
           <router-view/>
         </div>
       </div>
@@ -57,6 +57,11 @@ export default {
 
 <style scoped>
 .co-nav-bar {
-  background-color: #161D6F;
+  background-color: #323232;
+}
+.route-view-display {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-height: 600px;
 }
 </style>

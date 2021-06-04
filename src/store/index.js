@@ -10,7 +10,8 @@ export default new Vuex.Store({
     countries: [],
     favourite: null,
     standings: [],
-    news: []
+    news: [],
+    messages: []
   },
   mutations: {
     SET_countries (state, payload) {
@@ -27,6 +28,9 @@ export default new Vuex.Store({
     },
     SET_news (state, payload) {
       state.news = payload
+    },
+    SEND_message (state, payload) {
+      state.messages.push(payload)
     }
   },
   actions: {

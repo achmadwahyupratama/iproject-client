@@ -14,18 +14,24 @@
             v-if="formIsActive"
             @hideFormFavourite="closeForm"
         />
-        <div></div>
+        <div id="chat-box">
+          <ChatBox
+            :teamBadge="teamBadge"
+          />
+        </div>
     </div>
 </template>
 
 <script>
 import FavouritesList from './FavouritesList'
 import AddFavourite from './AddFavourite'
+import ChatBox from './ChatBox'
 export default {
   name: 'LeftBar',
   components: {
     FavouritesList,
-    AddFavourite
+    AddFavourite,
+    ChatBox
   },
   data () {
     return {
@@ -45,7 +51,11 @@ export default {
       return this.$store.state.favourites
     },
     teamBadge: function () {
-      return this.$store.state.favourite.team_badge
+      if (this.$store.state.favourite) {
+        return this.$store.state.favourite.team_badge
+      } else {
+        return ''
+      }
     }
   }
 }

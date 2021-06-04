@@ -13,7 +13,7 @@
             <option v-for="team in listTeams" :key="team.team_key" :value="team.team_key">{{team.team_name}}</option>
           </select>
         </div>
-        <button type="submit" class="btn rounded btn-primary" value="add">add</button>
+        <button v-if="showAddButton" type="submit" class="btn rounded btn-primary" value="add">add</button>
     </form>
   </div>
 </template>
@@ -25,7 +25,8 @@ export default {
     return {
       listTeams: [],
       leagueKey: 0,
-      teamKey: 0
+      teamKey: 0,
+      showAddButton: false
     }
   },
   computed: {
@@ -49,6 +50,13 @@ export default {
         .catch((err) => {
           console.log(err)
         })
+    },
+    teamKey (newValue, oldValue) {
+      if (newValue) {
+        this.showAddButton = true
+      } else {
+        this.showAddButton = false
+      }
     }
   },
   methods: {
